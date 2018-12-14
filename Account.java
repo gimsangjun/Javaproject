@@ -1,11 +1,9 @@
-package Accountdemo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.*;
-
 
 public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 하고싶은데
 { 
@@ -369,24 +367,31 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 			}
 			else if ( event.getSource() == member_out ) //회원탈퇴 
 			{	
-				for (i = 0 ; i < Id.size() ; i++) 
+				if(Id.contains(idfield_login.getText()))
 				{
-					if(Id.get(i).equals(idfield_login.getText())) 
+					for (i = 0 ; i < Id.size() ; i++) 
 					{
-						if (Pass.get(i).equals(passwordfield_login.getText()))
-						{ //비밀번호가 맞는지 다른지
-							Id.remove(i); 
-							Pass.remove(i);
-							money.remove(i);
-							JOptionPane.showMessageDialog(null, " 회원 탈퇴가 되었습니다. ");
-							break;
-						}
-						else 
+						if(Id.get(i).equals(idfield_login.getText())) 
 						{
-							JOptionPane.showMessageDialog(null, " 비밀번호가 일치하지 않습니다. ");
-							break;
+							if (Pass.get(i).equals(passwordfield_login.getText()))
+							{ //비밀번호가 맞는지 다른지
+								Id.remove(i); 
+								Pass.remove(i);
+								money.remove(i);
+								JOptionPane.showMessageDialog(null, " 회원 탈퇴가 되었습니다. ");
+								break;
+							}
+							else 
+							{
+								JOptionPane.showMessageDialog(null, " 비밀번호가 일치하지 않습니다. ");
+								break;
+							}
 						}
 					}
+				}
+				else 
+				{
+						JOptionPane.showMessageDialog(null,"없는 아이디 입니다. ");
 				}
 			}
 			else if ( event.getSource() == current_account)
