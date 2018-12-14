@@ -5,42 +5,42 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.*;
 
-public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ ÇÏ°í½ÍÀºµ¥
+public class Account //extends JFrameì„ í™œìš©í•˜ëŠ” ë°©ë²•, ì—¬ëŸ¬ê°€ì§€ íŒ¨ë„ì€ ë§Œë“¤ì–´ì„œ í•˜ê³ ì‹¶ì€ë°
 { 
 	JTextField idfield_login = new JTextField() ;
 	JPasswordField passwordfield_login = new JPasswordField();
 	JTextField idfield_member = new JTextField() ;
 	JPasswordField passwordfield_member = new JPasswordField();
-	JTextField account = new JTextField() ; // account_panel, ¾î´ÀÁ¤µµÀÇ ±İ¾×À» ÀÔ·Â¹ŞÀ»°ÍÀÎÁö 
+	JTextField account = new JTextField() ; // account_panel, ì–´ëŠì •ë„ì˜ ê¸ˆì•¡ì„ ì…ë ¥ë°›ì„ê²ƒì¸ì§€ 
 	
-	JButton login = new JButton("·Î±×ÀÎ"); //login_panel
-	JButton member_join = new JButton("È¸¿ø°¡ÀÔ"); //member_panel
-	JButton member_move = new JButton("È¸¿ø°¡ÀÔ"); //login_panel
-	JButton back = new JButton("µ¹¾Æ°¡±â"); //member_panel
-	JButton back_1 = new JButton("µÚ·Î"); // account_panel
-	JButton back_2 = new JButton("µ¹¾Æ°¡±â"); // trans_panel
-	JButton back_3 = new JButton("µ¹¾Æ°¡±â"); //list_panel
-	JButton plus = new JButton("ÀÔ±İ"); // account_panel
-	JButton minus = new JButton("Ãâ±İ"); // account_panel
-	JButton withdraw = new JButton("ÀÌÃ¼"); // account_panel
-	JButton member_out = new JButton("È¸¿øÅ»Åğ"); //member_panel
-	JButton trans_button = new JButton("°Å·¡³»¿ª"); //login_panel
-	JButton list = new JButton("»ç¿ëÀÚµé") ; // login_panel
-	//JButton current_account = new JButton("ÇöÀçÀÜ¾×"); //account_panel
+	JButton login = new JButton("ë¡œê·¸ì¸"); //login_panel
+	JButton member_join = new JButton("íšŒì›ê°€ì…"); //member_panel
+	JButton member_move = new JButton("íšŒì›ê°€ì…"); //login_panel
+	JButton back = new JButton("ëŒì•„ê°€ê¸°"); //member_panel
+	JButton back_1 = new JButton("ë’¤ë¡œ"); // account_panel
+	JButton back_2 = new JButton("ëŒì•„ê°€ê¸°"); // trans_panel
+	JButton back_3 = new JButton("ëŒì•„ê°€ê¸°"); //list_panel
+	JButton plus = new JButton("ì…ê¸ˆ"); // account_panel
+	JButton minus = new JButton("ì¶œê¸ˆ"); // account_panel
+	JButton withdraw = new JButton("ì´ì²´"); // account_panel
+	JButton member_out = new JButton("íšŒì›íƒˆí‡´"); //member_panel
+	JButton trans_button = new JButton("ê±°ë˜ë‚´ì—­"); //login_panel
+	JButton list = new JButton("ì‚¬ìš©ìë“¤") ; // login_panel
+	//JButton current_account = new JButton("í˜„ì¬ì”ì•¡"); //account_panel
 	
-	JLabel id_login = new JLabel("¾ÆÀÌµğ  "); //login_panel
-	JLabel pswrd_login = new JLabel("¾ÏÈ£  "); //login_panel
-	JLabel id_member = new JLabel("¾ÆÀÌµğ  "); // member_panel
-	JLabel pswrd_member = new JLabel("¾ÏÈ£  "); //member_panel
-	JLabel user = new JLabel ("»ç¿ëÀÚ"); //account_panel
-	JLabel user_name = new JLabel ("»ç¿ëÀÚ ÀÌ¸§"); // account_panel
-	JLabel current_account_msg = new JLabel("ÇöÀÜ¾× "); //account_panel
-	JLabel current_account = new JLabel("¸î¿ø"); // account_panel
-	JLabel money_account = new JLabel("±İ¾×"); // account_panel
+	JLabel id_login = new JLabel("ì•„ì´ë””  "); //login_panel
+	JLabel pswrd_login = new JLabel("ì•”í˜¸  "); //login_panel
+	JLabel id_member = new JLabel("ì•„ì´ë””  "); // member_panel
+	JLabel pswrd_member = new JLabel("ì•”í˜¸  "); //member_panel
+	JLabel user = new JLabel ("ì‚¬ìš©ì"); //account_panel
+	JLabel user_name = new JLabel ("ì‚¬ìš©ì ì´ë¦„"); // account_panel
+	JLabel current_account_msg = new JLabel("í˜„ì”ì•¡ "); //account_panel
+	JLabel current_account = new JLabel("ëª‡ì›"); // account_panel
+	JLabel money_account = new JLabel("ê¸ˆì•¡"); // account_panel
 	
-	ArrayList<String> Id  = new ArrayList<>(Arrays.asList("Dan","Sang")); //Arrays.asList´Â ¹«¾ùÀ» ÀÇ¹ÌÇÏ´Â°¡?
-	ArrayList<String> Pass  = new ArrayList<>(Arrays.asList("1234","0327")); // Àü¿ªº¯¼ö·Î ¸¸µé¾î¾ß È¸¿ø°¡ÀÔÀÌ µÉµí 
-	ArrayList<Integer> money  = new ArrayList<>(Arrays.asList(10000,50000)); // °èÁÂ ±İ¾× 
+	ArrayList<String> Id  = new ArrayList<>(Arrays.asList("Dan","Sang")); //Arrays.asListëŠ” ë¬´ì—‡ì„ ì˜ë¯¸í•˜ëŠ”ê°€?
+	ArrayList<String> Pass  = new ArrayList<>(Arrays.asList("1234","0327")); // ì „ì—­ë³€ìˆ˜ë¡œ ë§Œë“¤ì–´ì•¼ íšŒì›ê°€ì…ì´ ë ë“¯ 
+	ArrayList<Integer> money  = new ArrayList<>(Arrays.asList(10000,50000)); // ê³„ì¢Œ ê¸ˆì•¡ 
 	
 	JFrame main_frame = new JFrame("Account");
 	JPanel login_panel = new JPanel();
@@ -49,12 +49,12 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 	JPanel trans_panel = new JPanel();
 	JPanel list_panel = new JPanel();
 	
-	JTextArea trans = new JTextArea(); // ÃÖ±Ù °Å·¡³»¿ª ÀúÀåÇÒ°÷ 
-	JTextArea lists = new JTextArea(); // ¾î¶² »ç¿ëÀÚµé ÀÖ³ª º¸¿©ÁÖ´Â lists
+	JTextArea trans = new JTextArea(); // ìµœê·¼ ê±°ë˜ë‚´ì—­ ì €ì¥í• ê³³ 
+	JTextArea lists = new JTextArea(); // ì–´ë–¤ ì‚¬ìš©ìë“¤ ìˆë‚˜ ë³´ì—¬ì£¼ëŠ” lists
 	
-	int i = 0 ; //listÀÇ ¸î¹ø¤Š ÀÎµ¦½º¸¦ ¿øÇÏ³ª
+	int i = 0 ; //listì˜ ëª‡ë²ˆÂŠ ì¸ë±ìŠ¤ë¥¼ ì›í•˜ë‚˜
 	
-	public static boolean isNumeric(String s) { // ¼ıÀÚÀÎÁö ¹®ÀÚ¿­ÀÎÁö ÆÇ´ÜÇÏ´Â ¸Ş¼Òµå
+	public static boolean isNumeric(String s) { // ìˆ«ìì¸ì§€ ë¬¸ìì—´ì¸ì§€ íŒë‹¨í•˜ëŠ” ë©”ì†Œë“œ
 		  try {
 		      Double.parseDouble(s);
 		      return true;
@@ -88,37 +88,37 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 		login_panel.setLayout(null);
 		login_panel.setSize(450, 300);
 		
-		id_login.setBounds(65,50,50,25); //¶óº§
-		login_panel.add(id_login); //ÆĞ³Î¿¡ Ãß°¡
+		id_login.setBounds(65,50,50,25); //ë¼ë²¨
+		login_panel.add(id_login); //íŒ¨ë„ì— ì¶”ê°€
 		
-		pswrd_login.setBounds(65,80,80,25); //¶óº§
-		login_panel.add(pswrd_login);  //ÆĞ³Î¿¡ Ãß°¡
+		pswrd_login.setBounds(65,80,80,25); //ë¼ë²¨
+		login_panel.add(pswrd_login);  //íŒ¨ë„ì— ì¶”ê°€
 		
-		idfield_login.setBounds(113,52,116,24); //ÅØ½ºÆ®ÇÊµå
-		login_panel.add(idfield_login); //ÆĞ³Î¿¡ Ãß°¡
+		idfield_login.setBounds(113,52,116,24); //í…ìŠ¤íŠ¸í•„ë“œ
+		login_panel.add(idfield_login); //íŒ¨ë„ì— ì¶”ê°€
 		idfield_login.setColumns(10);
 		
-		passwordfield_login.setBounds(113,80,116,24); // ÅØ½ºÆ®ÇÊµå
-		login_panel.add(passwordfield_login); //ÆĞ³Î¿¡ Ãß°¡
+		passwordfield_login.setBounds(113,80,116,24); // í…ìŠ¤íŠ¸í•„ë“œ
+		login_panel.add(passwordfield_login); //íŒ¨ë„ì— ì¶”ê°€
 		passwordfield_login.setColumns(10);
 		
-		login.setSize(85,20); //¹öÆ°
+		login.setSize(85,20); //ë²„íŠ¼
 		login.setLocation(243,54);
-		login_panel.add(login); //ÆĞ³Î¿¡ Ãß°¡
+		login_panel.add(login); //íŒ¨ë„ì— ì¶”ê°€
 		
-		member_move.setSize(85,20); //¹öÆ°
+		member_move.setSize(85,20); //ë²„íŠ¼
 		member_move.setLocation(243, 84);
-		login_panel.add(member_move); //ÆĞ³Î¿¡ Ãß°¡
+		login_panel.add(member_move); //íŒ¨ë„ì— ì¶”ê°€
 		
-		trans_button.setSize(85,20); // ÃÖ±Ù°Å·¡³»¿ª ¹öÆ°
+		trans_button.setSize(85,20); // ìµœê·¼ê±°ë˜ë‚´ì—­ ë²„íŠ¼
 		trans_button.setLocation(243,114);
 		login_panel.add(trans_button);
 		
-		list.setSize(85,20); //¾î¶² »ç¿ëÀÚµéÀÌ ÀÖ³ª º¸¿©ÁÖ´Â panel·Î ÀÌµ¿ÇÏ´Â ¹öÆ°
+		list.setSize(85,20); //ì–´ë–¤ ì‚¬ìš©ìë“¤ì´ ìˆë‚˜ ë³´ì—¬ì£¼ëŠ” panelë¡œ ì´ë™í•˜ëŠ” ë²„íŠ¼
 		list.setLocation(340, 54);
 		login_panel.add(list);
 		
-		// »ç°Ç ¸®½º³Ê °´Ã¼¸¦ ¸¸µé°í µÎ °³ÀÇ ´ÜÃß °´Ã¼µéÀÇ »ç°Ç ¸®½º³Ê·Î µî·ÏÇÑ´Ù
+		// ì‚¬ê±´ ë¦¬ìŠ¤ë„ˆ ê°ì²´ë¥¼ ë§Œë“¤ê³  ë‘ ê°œì˜ ë‹¨ì¶” ê°ì²´ë“¤ì˜ ì‚¬ê±´ ë¦¬ìŠ¤ë„ˆë¡œ ë“±ë¡í•œë‹¤
 		ButtonListener listener = new ButtonListener();
         login.addActionListener(listener);
         member_move.addActionListener(listener);
@@ -135,37 +135,37 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 		member_panel.setLayout(null);
 		member_panel.setSize(450, 300);
 		
-		id_member.setBounds(65,50,50,25); //¶óº§
-		member_panel.add(id_member); //ÆĞ³Î¿¡ Ãß°¡
+		id_member.setBounds(65,50,50,25); //ë¼ë²¨
+		member_panel.add(id_member); //íŒ¨ë„ì— ì¶”ê°€
 		
-		pswrd_member.setBounds(65,80,80,25); //¶óº§
-		member_panel.add(pswrd_member); //Æä³Î¿¡ Ãß°¡
+		pswrd_member.setBounds(65,80,80,25); //ë¼ë²¨
+		member_panel.add(pswrd_member); //í˜ë„ì— ì¶”ê°€
 		
-		idfield_member.setBounds(113,52,116,24); //ÅØ½ºÆ®ÇÊµå
-		member_panel.add(idfield_member); //ÆĞ³Î¿¡ Ãß°¡
+		idfield_member.setBounds(113,52,116,24); //í…ìŠ¤íŠ¸í•„ë“œ
+		member_panel.add(idfield_member); //íŒ¨ë„ì— ì¶”ê°€
 		idfield_member.setColumns(10); 
 		
-		passwordfield_member.setBounds(113,80,116,24); // ÅØ½ºÆ®ÇÊµå
-		member_panel.add(passwordfield_member); //ÆĞ³Î¿¡ Ãß°¡
+		passwordfield_member.setBounds(113,80,116,24); // í…ìŠ¤íŠ¸í•„ë“œ
+		member_panel.add(passwordfield_member); //íŒ¨ë„ì— ì¶”ê°€
 		passwordfield_member.setColumns(10);
 
-		member_join.setSize(85,20); //È¸¿ø°¡ÀÔ¹öÆ°
+		member_join.setSize(85,20); //íšŒì›ê°€ì…ë²„íŠ¼
 		member_join.setLocation(243,54);
-		member_panel.add(member_join); //ÆĞ³Î¿¡ Ãß°¡
+		member_panel.add(member_join); //íŒ¨ë„ì— ì¶”ê°€
 		
-		member_out.setSize(85,20); //È¸¿øÅ»Åğ¹öÆ°
+		member_out.setSize(85,20); //íšŒì›íƒˆí‡´ë²„íŠ¼
 		member_out.setLocation(243,84);
-		member_panel.add(member_out); //Æä³Î¿¡ Ãß°¡
+		member_panel.add(member_out); //í˜ë„ì— ì¶”ê°€
 		
-		back.setSize(85,20); //µÚ·Î°¡±â¹öÆ°
+		back.setSize(85,20); //ë’¤ë¡œê°€ê¸°ë²„íŠ¼
 		back.setLocation(243,114);
-		member_panel.add(back); //ÆĞ³Î¿¡ Ãß°¡
+		member_panel.add(back); //íŒ¨ë„ì— ì¶”ê°€
 		
-		// »ç°Ç ¸®½º³Ê °´Ã¼¸¦ ¸¸µé°í µÎ °³ÀÇ ´ÜÃß °´Ã¼µéÀÇ »ç°Ç ¸®½º³Ê·Î µî·ÏÇÑ´Ù
+		// ì‚¬ê±´ ë¦¬ìŠ¤ë„ˆ ê°ì²´ë¥¼ ë§Œë“¤ê³  ë‘ ê°œì˜ ë‹¨ì¶” ê°ì²´ë“¤ì˜ ì‚¬ê±´ ë¦¬ìŠ¤ë„ˆë¡œ ë“±ë¡í•œë‹¤
 		ButtonListener listener = new ButtonListener();
-		back.addActionListener(listener); // ¿Ï·á 
-		member_join.addActionListener(listener); // ¿Ï·á 
-		member_out.addActionListener(listener); // ¾ÆÁ÷ ¹öÆ°ÀÇ ÀÌº¥Æ® ¹ß»ıÀº ³ÖÁö ¾Ê¾ÒÀ½.
+		back.addActionListener(listener); // ì™„ë£Œ 
+		member_join.addActionListener(listener); // ì™„ë£Œ 
+		member_out.addActionListener(listener); // ì•„ì§ ë²„íŠ¼ì˜ ì´ë²¤íŠ¸ ë°œìƒì€ ë„£ì§€ ì•Šì•˜ìŒ.
 		
 		member_panel.setVisible(false);
 		
@@ -177,59 +177,59 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 		account_panel.setLayout(null);
 		account_panel.setSize(450, 300);
 		
-		//current_account.setBounds(65,50,50,25); //¶óº§
-		//account_panel.add(current_account); //ÆĞ³Î¿¡ Ãß°¡
+		//current_account.setBounds(65,50,50,25); //ë¼ë²¨
+		//account_panel.add(current_account); //íŒ¨ë„ì— ì¶”ê°€
 		
-		//pswrd_member.setBounds(65,80,80,25); //¶óº§
-		//member_panel.add(pswrd_member); //ÆĞ³Î¿¡ Ãß°¡
+		//pswrd_member.setBounds(65,80,80,25); //ë¼ë²¨
+		//member_panel.add(pswrd_member); //íŒ¨ë„ì— ì¶”ê°€
 		
-		user.setBounds(65,20,50,25); //¶óº§ ,ÇöÀç »ç¿ëÀÚ´Â ´©±¸ÀÎ°¡? user 
-		account_panel.add(user); //ÆĞ³Î¿¡ Ãß°¡
+		user.setBounds(65,20,50,25); //ë¼ë²¨ ,í˜„ì¬ ì‚¬ìš©ìëŠ” ëˆ„êµ¬ì¸ê°€? user 
+		account_panel.add(user); //íŒ¨ë„ì— ì¶”ê°€
 		
 		money_account.setBounds(65,80,80,25);
 		account_panel.add(money_account);
 		
-		user_name.setBounds(113, 20, 116, 24); //¶óº§ , ÇöÀÚ »ç¿ëÇÏ´Â »ç¶÷: Sang
+		user_name.setBounds(113, 20, 116, 24); //ë¼ë²¨ , í˜„ì ì‚¬ìš©í•˜ëŠ” ì‚¬ëŒ: Sang
 		account_panel.add(user_name);
 		
-		current_account_msg.setBounds(65, 50, 50, 25); // ÇöÀÜ¾×
+		current_account_msg.setBounds(65, 50, 50, 25); // í˜„ì”ì•¡
 		account_panel.add(current_account_msg);
 		
-		current_account.setBounds(113,50,116,24); //¸î¿ø
+		current_account.setBounds(113,50,116,24); //ëª‡ì›
 		account_panel.add(current_account);
 		/*
-		current_account.setSize(116,24); //ÇöÀç ÀÜ¾× È®ÀÎ ¹öÆ°
+		current_account.setSize(116,24); //í˜„ì¬ ì”ì•¡ í™•ì¸ ë²„íŠ¼
 		current_account.setLocation(113,52);
-		account_panel.add(current_account); //ÆĞ³Î¿¡ Ãß°¡
+		account_panel.add(current_account); //íŒ¨ë„ì— ì¶”ê°€
 		*/
 		
-		account.setBounds(113,80,116,24); // /±İ¾×ÀÔ·ÂÇÏ´Â ÅØ½ºÆ®ÇÊµå
-		account_panel.add(account); //ÆĞ³Î¿¡ Ãß°¡
+		account.setBounds(113,80,116,24); // /ê¸ˆì•¡ì…ë ¥í•˜ëŠ” í…ìŠ¤íŠ¸í•„ë“œ
+		account_panel.add(account); //íŒ¨ë„ì— ì¶”ê°€
 		account.setColumns(10);
 
-		plus.setSize(85,20); //ÀÔ±İ¹öÆ°
+		plus.setSize(85,20); //ì…ê¸ˆë²„íŠ¼
 		plus.setLocation(243,54);
-		account_panel.add(plus); //ÆĞ³Î¿¡ Ãß°¡ 
+		account_panel.add(plus); //íŒ¨ë„ì— ì¶”ê°€ 
 		
-		minus.setSize(85,20); // Ãâ±İ¹öÆ°
+		minus.setSize(85,20); // ì¶œê¸ˆë²„íŠ¼
 		minus.setLocation(243,84);
-		account_panel.add(minus); //ÆĞ³Î¿¡ Ãß°¡
+		account_panel.add(minus); //íŒ¨ë„ì— ì¶”ê°€
 		
-		withdraw.setSize(85,20); // ¿¹±İ¹öÆ°
+		withdraw.setSize(85,20); // ì˜ˆê¸ˆë²„íŠ¼
 		withdraw.setLocation(340,54);
-		account_panel.add(withdraw); //ÆĞ³Î¿¡ Ãß°¡
+		account_panel.add(withdraw); //íŒ¨ë„ì— ì¶”ê°€
 		
-		back_1.setSize(85,20); // µÚ·Î ¹öÆ°
+		back_1.setSize(85,20); // ë’¤ë¡œ ë²„íŠ¼
 		back_1.setLocation(340,84);
-		account_panel.add(back_1); //ÆĞ³Î¿¡ Ãß°¡
+		account_panel.add(back_1); //íŒ¨ë„ì— ì¶”ê°€
 		
-		// »ç°Ç ¸®½º³Ê °´Ã¼¸¦ ¸¸µé°í µÎ °³ÀÇ ´ÜÃß °´Ã¼µéÀÇ »ç°Ç ¸®½º³Ê·Î µî·ÏÇÑ´Ù
-		ButtonListener listener = new ButtonListener(); // ¾ÆÁ÷ ÀÌº¥Æ®¿¡ ±â´ÉÀº ³ÖÁö ¾Ê¾ÒÀ½.
+		// ì‚¬ê±´ ë¦¬ìŠ¤ë„ˆ ê°ì²´ë¥¼ ë§Œë“¤ê³  ë‘ ê°œì˜ ë‹¨ì¶” ê°ì²´ë“¤ì˜ ì‚¬ê±´ ë¦¬ìŠ¤ë„ˆë¡œ ë“±ë¡í•œë‹¤
+		ButtonListener listener = new ButtonListener(); // ì•„ì§ ì´ë²¤íŠ¸ì— ê¸°ëŠ¥ì€ ë„£ì§€ ì•Šì•˜ìŒ.
 		plus.addActionListener(listener);
 		minus.addActionListener(listener);
 		withdraw.addActionListener(listener);
 		back_1.addActionListener(listener);
-		//current_account.addActionListener(listener); //ÇöÀçÀÜ¾× ¿Ï·á , j¹öÆ°ÀÏ°æ¿ì
+		//current_account.addActionListener(listener); //í˜„ì¬ì”ì•¡ ì™„ë£Œ , jë²„íŠ¼ì¼ê²½ìš°
 		
 		account_panel.setVisible(false);
 		
@@ -244,9 +244,9 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 		trans.setBounds(0, 0, 335, 300);
 		trans_panel.add(trans);
 		
-		back_2.setSize(85,20); //µÚ·Î°¡±â ¹öÆ°
+		back_2.setSize(85,20); //ë’¤ë¡œê°€ê¸° ë²„íŠ¼
 		back_2.setLocation(345,10);
-		trans_panel.add(back_2); //ÆĞ³Î¿¡ Ãß°¡
+		trans_panel.add(back_2); //íŒ¨ë„ì— ì¶”ê°€
 		
 		ButtonListener listener = new ButtonListener();
 		back_2.addActionListener(listener);
@@ -260,9 +260,9 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 		lists.setBounds(0, 0, 335, 300); //TextField 
 		list_panel.add(lists);
 		
-		back_3.setSize(85,20); //µÚ·Î°¡±â ¹öÆ°
+		back_3.setSize(85,20); //ë’¤ë¡œê°€ê¸° ë²„íŠ¼
 		back_3.setLocation(345,10);
-		list_panel.add(back_3);//ÆĞ³Î¿¡ Ãß°¡
+		list_panel.add(back_3);//íŒ¨ë„ì— ì¶”ê°€
 		
 		ButtonListener listener = new ButtonListener();
 		back_3.addActionListener(listener);
@@ -275,52 +275,52 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 		public void actionPerformed(ActionEvent event) 
 		{
 
-			if (event.getSource() == login) // ·Î±×ÀÎ ±â´É
+			if (event.getSource() == login) // ë¡œê·¸ì¸ ê¸°ëŠ¥
 			{	
 				i = 0 ;
 				for (i = 0 ; i < Id.size() ; i++) 
 				{
-					if(Id.contains(idfield_login.getText())) // ¹è¿­¾È¿¡ ±× ¾ÆÀÌµğ°ªÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö 
+					if(Id.contains(idfield_login.getText())) // ë°°ì—´ì•ˆì— ê·¸ ì•„ì´ë””ê°’ì´ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ 
 					{ 
 						if(Id.get(i).equals(idfield_login.getText())) 
 						{
 							if (Pass.get(i).equals(passwordfield_login.getText()))
-							{ //ºñ¹Ğ¹øÈ£°¡ ¸Â´ÂÁö ´Ù¸¥Áö
-								user_name.setText(Id.get(i)); // ÀÌºÎºĞ Áß¿ä 
-								current_account.setText(Integer.toString(money.get(i))); // string¸¸ °¡´ÉÇÏ¹Ç·Î 
+							{ //ë¹„ë°€ë²ˆí˜¸ê°€ ë§ëŠ”ì§€ ë‹¤ë¥¸ì§€
+								user_name.setText(Id.get(i)); // ì´ë¶€ë¶„ ì¤‘ìš” 
+								current_account.setText(Integer.toString(money.get(i))); // stringë§Œ ê°€ëŠ¥í•˜ë¯€ë¡œ 
 								login_panel.setVisible(false);
 								account_panel.setVisible(true);
 							}
 							else 
 							{
-								JOptionPane.showMessageDialog(null, " ·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù. ");
+								JOptionPane.showMessageDialog(null, " ë¡œê·¸ì¸ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤. ");
 								break;
 							}
 						}
 					}
 					else
 					{ 
-						JOptionPane.showMessageDialog(null, " ÀÌ ¾ÆÀÌµğ´Â Á¸ÀçÇÏÁö¾Ê½À´Ï´Ù. ");
+						JOptionPane.showMessageDialog(null, " ì´ ì•„ì´ë””ëŠ” ì¡´ì¬í•˜ì§€ì•ŠìŠµë‹ˆë‹¤. ");
 						break;
 					}
 				}
 		    }	
-			else if(event.getSource()== member_move) //member_move´­·¶À»¶§ member_panelÀ¸·Î ÀÌµ¿.
+			else if(event.getSource()== member_move) //member_moveëˆŒë €ì„ë•Œ member_panelìœ¼ë¡œ ì´ë™.
 			{	
 				login_panel.setVisible(false);
 				member_panel.setVisible(true);
 			}
-			else if (event.getSource() == back) // back´­·µÀ»¶§ , member_panel¿¡¼­ login_panel·Î ÀÌµ¿
+			else if (event.getSource() == back) // backëˆŒëŸ¿ì„ë•Œ , member_panelì—ì„œ login_panelë¡œ ì´ë™
 			{
 				member_panel.setVisible(false);
 				login_panel.setVisible(true);
 			}
-			else if (event.getSource() == back_1) // account_panel¿¡¼­ login_panel·Î ÀÌµ¿
+			else if (event.getSource() == back_1) // account_panelì—ì„œ login_panelë¡œ ì´ë™
 			{
 				account_panel.setVisible(false);
 				login_panel.setVisible(true);
 			}
-			else if (event.getSource() == back_2 ) // ÃÖ±Ù°Å·¯³»¿ª ÆĞ³Î¿¡¼­ ·Î±×ÀÎÆĞ³Î·Î µ¹¾Æ°¡±â
+			else if (event.getSource() == back_2 ) // ìµœê·¼ê±°ëŸ¬ë‚´ì—­ íŒ¨ë„ì—ì„œ ë¡œê·¸ì¸íŒ¨ë„ë¡œ ëŒì•„ê°€ê¸°
 			{
 				trans_panel.setVisible(false);
 				login_panel.setVisible(true);
@@ -330,60 +330,60 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 				list_panel.setVisible(false);
 				login_panel.setVisible(true);
 			}
-			else if (event.getSource() == trans_button) // ÃÖ±Ù°Å·¡³»¿ª Á¶È¸
+			else if (event.getSource() == trans_button) // ìµœê·¼ê±°ë˜ë‚´ì—­ ì¡°íšŒ
 			{
 				login_panel.setVisible(false);
 				trans_panel.setVisible(true);
 			}
-			else if (event.getSource() == list) // »ç¿ëÀÚ¸ñ·Ï º¸¿©ÁÖ´Â ÆĞ³Î·Î ÀÌµ¿	
+			else if (event.getSource() == list) // ì‚¬ìš©ìëª©ë¡ ë³´ì—¬ì£¼ëŠ” íŒ¨ë„ë¡œ ì´ë™	
 			{
 				login_panel.setVisible(false);
 				lists.setText("");
 				for ( i = 0 ; i < Id.size() ; i++)
 				{
-					lists.append(Id.get(i) + " ÀÇ ÀÜ¾×Àº " + money.get(i) + "¿ø ÀÔ´Ï´Ù\n");
+					lists.append(Id.get(i) + " ì˜ ì”ì•¡ì€ " + money.get(i) + "ì› ì…ë‹ˆë‹¤\n");
 				}
 				list_panel.setVisible(true);
 			}
-			else if (event.getSource() == member_join ) //È¸¿ø°¡ÀÔ ¹öÆ°
+			else if (event.getSource() == member_join ) //íšŒì›ê°€ì… ë²„íŠ¼
 			{	
 				i = 0 ;
 				for (i = 0 ; i < Id.size() ; i++) 
 				{
-					if(Id.contains(idfield_member.getText())) // ¹è¿­¾È¿¡ ±× ¾ÆÀÌµğ°ªÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö 
+					if(Id.contains(idfield_member.getText())) // ë°°ì—´ì•ˆì— ê·¸ ì•„ì´ë””ê°’ì´ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ 
 					{ 
-						JOptionPane.showMessageDialog(null, " ÀÌ¹Ì Á¸ÀçÇÏ´Â ¾ÆÀÌµğÀÔ´Ï´Ù. ");
+						JOptionPane.showMessageDialog(null, " ì´ë¯¸ ì¡´ì¬í•˜ëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤. ");
 						break;
 					}
 					else 
 					{ 
 						Id.add(idfield_member.getText());
 						Pass.add(passwordfield_member.getText());
-						money.add(0); // ¾ÆÀÌµğ¸¦ »ı¼ºÇßÀ¸¹Ç·Î, 
-						JOptionPane.showMessageDialog(null, " È¸¿ø°¡ÀÔÀÌ µÇ¾ú½À´Ï´Ù. ");
+						money.add(0); // ì•„ì´ë””ë¥¼ ìƒì„±í–ˆìœ¼ë¯€ë¡œ, 
+						JOptionPane.showMessageDialog(null, " íšŒì›ê°€ì…ì´ ë˜ì—ˆìŠµë‹ˆë‹¤. ");
 						break;
 					}
 				}
 			}
-			else if ( event.getSource() == member_out ) //È¸¿øÅ»Åğ 
+			else if ( event.getSource() == member_out ) //íšŒì›íƒˆí‡´ 
 			{	
-				if(Id.contains(idfield_login.getText()))
+				if(Id.contains(idfield_login.getText())) // ê·¸ì•„ì´ë””ê°€ ìˆëŠ”ì§€ 
 				{
 					for (i = 0 ; i < Id.size() ; i++) 
 					{
 						if(Id.get(i).equals(idfield_login.getText())) 
 						{
 							if (Pass.get(i).equals(passwordfield_login.getText()))
-							{ //ºñ¹Ğ¹øÈ£°¡ ¸Â´ÂÁö ´Ù¸¥Áö
+							{ //ë¹„ë°€ë²ˆí˜¸ê°€ ë§ëŠ”ì§€ ë‹¤ë¥¸ì§€
 								Id.remove(i); 
 								Pass.remove(i);
 								money.remove(i);
-								JOptionPane.showMessageDialog(null, " È¸¿ø Å»Åğ°¡ µÇ¾ú½À´Ï´Ù. ");
+								JOptionPane.showMessageDialog(null, " íšŒì› íƒˆí‡´ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤. ");
 								break;
 							}
 							else 
 							{
-								JOptionPane.showMessageDialog(null, " ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ");
+								JOptionPane.showMessageDialog(null, " ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ");
 								break;
 							}
 						}
@@ -391,17 +391,17 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 				}
 				else 
 				{
-						JOptionPane.showMessageDialog(null,"¾ø´Â ¾ÆÀÌµğ ÀÔ´Ï´Ù. ");
+						JOptionPane.showMessageDialog(null,"ì—†ëŠ” ì•„ì´ë”” ì…ë‹ˆë‹¤. ");
 				}
 			}
 			else if ( event.getSource() == current_account)
 			{
-				for (i = 0 ; i < Id.size() ; i++) // ¸î¹øÂ° ÀÎµ¦½º ÀÎÁö È®ÀÎ
+				for (i = 0 ; i < Id.size() ; i++) // ëª‡ë²ˆì§¸ ì¸ë±ìŠ¤ ì¸ì§€ í™•ì¸
 				{	
-					if(Id.get(i).equals(idfield_login.getText()))  // ¹è¿­¾È¿¡ ±× ¾ÆÀÌµğ°ªÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö 
+					if(Id.get(i).equals(idfield_login.getText()))  // ë°°ì—´ì•ˆì— ê·¸ ì•„ì´ë””ê°’ì´ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ 
 					{ 	
 						int m = money.get(i);
-						JOptionPane.showMessageDialog(null,"ÇöÀçÀÜ¾×  : "+ m + " ¿ø"); // ÀÌ·±½ÄÀ¸·Î ¾µ¼ö ÀÖ´Ù.
+						JOptionPane.showMessageDialog(null,"í˜„ì¬ì”ì•¡  : "+ m + " ì›"); // ì´ëŸ°ì‹ìœ¼ë¡œ ì“¸ìˆ˜ ìˆë‹¤.
 						break;
 					}
 						
@@ -411,17 +411,17 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 			{
 				if(isNumeric(account.getText()) == true)
 				{
-					for (i = 0 ; i < Id.size() ; i++) // ¸î¹øÂ° ÀÎµ¦½º ÀÎÁö È®ÀÎ
+					for (i = 0 ; i < Id.size() ; i++) // ëª‡ë²ˆì§¸ ì¸ë±ìŠ¤ ì¸ì§€ í™•ì¸
 					{
-						if(Id.get(i).equals(idfield_login.getText()))  // ¹è¿­¾È¿¡ ±× ¾ÆÀÌµğ°ªÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö 
+						if(Id.get(i).equals(idfield_login.getText()))  // ë°°ì—´ì•ˆì— ê·¸ ì•„ì´ë””ê°’ì´ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ 
 						{ 	
 							int m = money.get(i);
-							int n = Integer.parseInt(account.getText()); // stringÀÇ °ªÀ» Á¤¼öÇüÀ¸·Î ÀüÈ¯ 
+							int n = Integer.parseInt(account.getText()); // stringì˜ ê°’ì„ ì •ìˆ˜í˜•ìœ¼ë¡œ ì „í™˜ 
 							m = m + n ;
-							money.set(i,m); //Æ¯Á¤ ÀÎµ¦½º °ª mÀ¸·Î ¼öÁ¤
-							trans.append(Id.get(i) + " ¿¡°Ô " + n + " ¿øÀÌ ÀÔ±İµÇ¾ú½À´Ï´Ù. \n");
-							current_account.setText(Integer.toString(money.get(i))); // ÇöÀç¸î¿øÀÎÁö º¸¿©ÁÖ´Â labelÀÇ text¸¦ ÁöÁ¤ÇØÁÜ.
-							JOptionPane.showMessageDialog(null,"ÇöÀçÀÜ¾×  : "+ m + " ¿ø"); // ÀÌ·±½ÄÀ¸·Î ¾µ¼ö ÀÖ´Ù.
+							money.set(i,m); //íŠ¹ì • ì¸ë±ìŠ¤ ê°’ mìœ¼ë¡œ ìˆ˜ì •
+							trans.append(Id.get(i) + " ì—ê²Œ " + n + " ì›ì´ ì…ê¸ˆë˜ì—ˆìŠµë‹ˆë‹¤. \n");
+							current_account.setText(Integer.toString(money.get(i))); // í˜„ì¬ëª‡ì›ì¸ì§€ ë³´ì—¬ì£¼ëŠ” labelì˜ textë¥¼ ì§€ì •í•´ì¤Œ.
+							JOptionPane.showMessageDialog(null,"í˜„ì¬ì”ì•¡  : "+ m + " ì›"); // ì´ëŸ°ì‹ìœ¼ë¡œ ì“¸ìˆ˜ ìˆë‹¤.
 							break;
 						}
 							
@@ -429,29 +429,29 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 				}
 				else
 				{
-					JOptionPane.showMessageDialog(null,"Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ");
+					JOptionPane.showMessageDialog(null,"ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ");
 				}
 			}
 			else if (event.getSource() == minus)
 			{	
-				if(isNumeric(account.getText()) == true) // ¼ıÀÚÀÎÁö ¹®ÀÚ¿­ÀÎÁö È®ÀÎ 
+				if(isNumeric(account.getText()) == true) // ìˆ«ìì¸ì§€ ë¬¸ìì—´ì¸ì§€ í™•ì¸ 
 				{
-					for (i = 0 ; i < Id.size() ; i++) // ¸î¹øÂ° ÀÎµ¦½º ÀÎÁö È®ÀÎ
+					for (i = 0 ; i < Id.size() ; i++) // ëª‡ë²ˆì§¸ ì¸ë±ìŠ¤ ì¸ì§€ í™•ì¸
 						{
-							if(Id.get(i).equals(idfield_login.getText()))  // ¹è¿­¾È¿¡ ±× ¾ÆÀÌµğ°ªÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö 
+							if(Id.get(i).equals(idfield_login.getText()))  // ë°°ì—´ì•ˆì— ê·¸ ì•„ì´ë””ê°’ì´ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ 
 							{ 	
 								int m = money.get(i);
-								int n = Integer.parseInt(account.getText()); // stringÀÇ °ªÀ» Á¤¼öÇüÀ¸·Î ÀüÈ¯ 
+								int n = Integer.parseInt(account.getText()); // stringì˜ ê°’ì„ ì •ìˆ˜í˜•ìœ¼ë¡œ ì „í™˜ 
 								m = m - n ;
 								if ( m < 0 )
 								{
-									JOptionPane.showMessageDialog(null,"µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
+									JOptionPane.showMessageDialog(null,"ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
 									break;
 								}
-								money.set(i,m); //Æ¯Á¤ ÀÎµ¦½º °ª mÀ¸·Î ¼öÁ¤
-								trans.append(Id.get(i) + " ¿¡°Ô " + n + " ¿øÀÌ Ãâ±İµÇ¾ú½À´Ï´Ù.\n ");
-								current_account.setText(Integer.toString(money.get(i))); // ÇöÀç¸î¿øÀÎÁö º¸¿©ÁÖ´Â labelÀÇ text¸¦ ÁöÁ¤ÇØÁÜ.
-								JOptionPane.showMessageDialog(null,"ÇöÀçÀÜ¾×  : "+ m + " ¿ø"); // ÀÌ·±½ÄÀ¸·Î ¾µ¼ö ÀÖ´Ù.
+								money.set(i,m); //íŠ¹ì • ì¸ë±ìŠ¤ ê°’ mìœ¼ë¡œ ìˆ˜ì •
+								trans.append(Id.get(i) + " ì—ê²Œ " + n + " ì›ì´ ì¶œê¸ˆë˜ì—ˆìŠµë‹ˆë‹¤.\n ");
+								current_account.setText(Integer.toString(money.get(i))); // í˜„ì¬ëª‡ì›ì¸ì§€ ë³´ì—¬ì£¼ëŠ” labelì˜ textë¥¼ ì§€ì •í•´ì¤Œ.
+								JOptionPane.showMessageDialog(null,"í˜„ì¬ì”ì•¡  : "+ m + " ì›"); // ì´ëŸ°ì‹ìœ¼ë¡œ ì“¸ìˆ˜ ìˆë‹¤.
 								break;
 							}
 								
@@ -459,56 +459,56 @@ public class Account //extends JFrameÀ» È°¿ëÇÏ´Â ¹æ¹ı, ¿©·¯°¡Áö ÆĞ³ÎÀº ¸¸µé¾î¼­ 
 				}
 				else 
 				{
-					JOptionPane.showMessageDialog(null,"Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ");
+					JOptionPane.showMessageDialog(null,"ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ");
 				}
 			}
-			else if (event.getSource() == withdraw) //ÀÌÃ¼
+			else if (event.getSource() == withdraw) //ì´ì²´
 			{
 				
-				if(isNumeric(account.getText()) == true) // ¼ıÀÚÀÎÁö ,¹®ÀÚ¿­ÀÎÁö È®ÀÎ
+				if(isNumeric(account.getText()) == true) // ìˆ«ìì¸ì§€ ,ë¬¸ìì—´ì¸ì§€ í™•ì¸
 				{	
-					String who = JOptionPane.showInputDialog(" ´©±¸¿¡¼­ ÀÌÃ¼ÇÏ½Ã°Ú½À´Ï±î? ");
-					if(Id.contains(who)) // who¶ó´Â »ç¶÷ÀÌ Id°¡ ÀÖ´ÂÁö È®ÀÎ 
+					String who = JOptionPane.showInputDialog(" ëˆ„êµ¬ì—ì„œ ì´ì²´í•˜ì‹œê² ìŠµë‹ˆê¹Œ? ");
+					if(Id.contains(who)) // whoë¼ëŠ” ì‚¬ëŒì´ Idê°€ ìˆëŠ”ì§€ í™•ì¸ 
 					{
-						for (i = 0 ; i < Id.size() ; i++) // ¸î¹øÂ° ÀÎµ¦½º ÀÎÁö È®ÀÎ
+						for (i = 0 ; i < Id.size() ; i++) // ëª‡ë²ˆì§¸ ì¸ë±ìŠ¤ ì¸ì§€ í™•ì¸
 						{	
 		
-							if(Id.get(i).equals(who));  // ¹è¿­¾È¿¡ ±× ¾ÆÀÌµğ°ªÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö 
+							if(Id.get(i).equals(who));  // ë°°ì—´ì•ˆì— ê·¸ ì•„ì´ë””ê°’ì´ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ 
 							{ 	
-								int m = money.get(i); //¹Ş´Â »ç¶÷ÀÇ µ·
-								int n = Integer.parseInt(account.getText()); // stringÀÇ °ªÀ» Á¤¼öÇüÀ¸·Î ÀüÈ¯ 
-								money.set(i,m+n); //µ· ¹ŞÀº»ç¶÷ÀÇ µ·À» ¿Ã·ÁÁÜ
-								for (int a = 0 ; a < Id.size() ; a++) // ¸î¹øÂ° ÀÎµ¦½º ÀÎÁö È®ÀÎ
+								int m = money.get(i); //ë°›ëŠ” ì‚¬ëŒì˜ ëˆ
+								int n = Integer.parseInt(account.getText()); // stringì˜ ê°’ì„ ì •ìˆ˜í˜•ìœ¼ë¡œ ì „í™˜ 
+								money.set(i,m+n); //ëˆ ë°›ì€ì‚¬ëŒì˜ ëˆì„ ì˜¬ë ¤ì¤Œ
+								for (int a = 0 ; a < Id.size() ; a++) // ëª‡ë²ˆì§¸ ì¸ë±ìŠ¤ ì¸ì§€ í™•ì¸
 								{
-									if(Id.get(a).equals(idfield_login.getText())) //µ·À» º¸³½»ç¶÷ Ã£±â
+									if(Id.get(a).equals(idfield_login.getText())) //ëˆì„ ë³´ë‚¸ì‚¬ëŒ ì°¾ê¸°
 									{ 	
-										int b = money.get(a); // º¸³»´Â »ç¶÷ÀÇ µ·
+										int b = money.get(a); // ë³´ë‚´ëŠ” ì‚¬ëŒì˜ ëˆ
 										b = b - n;
 										if ( b < 0 )
 										{
-											JOptionPane.showMessageDialog(null,"µ·ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
+											JOptionPane.showMessageDialog(null,"ëˆì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
 											break;
 										}
-										money.set(a,b); //Æ¯Á¤ ÀÎµ¦½º °ª mÀ¸·Î ¼öÁ¤
-										trans.append(Id.get(a) + " ÀÌ/°¡ ");
-										current_account.setText(Integer.toString(money.get(a))); // ÇöÀç¸î¿øÀÎÁö º¸¿©ÁÖ´Â labelÀÇ text¸¦ ÁöÁ¤ÇØÁÜ.
+										money.set(a,b); //íŠ¹ì • ì¸ë±ìŠ¤ ê°’ mìœ¼ë¡œ ìˆ˜ì •
+										trans.append(Id.get(a) + " ì´/ê°€ ");
+										current_account.setText(Integer.toString(money.get(a))); // í˜„ì¬ëª‡ì›ì¸ì§€ ë³´ì—¬ì£¼ëŠ” labelì˜ textë¥¼ ì§€ì •í•´ì¤Œ.
 										break;
 									}
 										
 								}
-								trans.append(Id.get(i) + " ¿¡°Ô " + n + " ¿øÀ» ÀÌÃ¼ÇÏ¿´½À´Ï´Ù.\n ");
+								trans.append(Id.get(i) + " ì—ê²Œ " + n + " ì›ì„ ì´ì²´í•˜ì˜€ìŠµë‹ˆë‹¤.\n ");
 								break;
 							}		
 						}
 					}
-					else //who¶ó´Â »ç¶÷ÀÌ ¾øÀ¸¸é ¸Ş¼¼Áö Ãâ·Â 
+					else //whoë¼ëŠ” ì‚¬ëŒì´ ì—†ìœ¼ë©´ ë©”ì„¸ì§€ ì¶œë ¥ 
 					{
-						JOptionPane.showMessageDialog(null,"¾ø´Â »ç¿ëÀÚ ÀÔ´Ï´Ù.");
+						JOptionPane.showMessageDialog(null,"ì—†ëŠ” ì‚¬ìš©ì ì…ë‹ˆë‹¤.");
 					}
 				}
 				else 
 				{
-					JOptionPane.showMessageDialog(null,"Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ");
+					JOptionPane.showMessageDialog(null,"ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ");
 				}
 			}
 		}
