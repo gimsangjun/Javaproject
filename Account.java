@@ -1,3 +1,5 @@
+package Accountdemo;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -19,11 +21,13 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 	JButton back = new JButton("돌아가기"); //member_panel
 	JButton back_1 = new JButton("뒤로"); // account_panel
 	JButton back_2 = new JButton("돌아가기"); // trans_panel
+	JButton back_3 = new JButton("돌아가기"); //list_panel
 	JButton plus = new JButton("입금"); // account_panel
 	JButton minus = new JButton("출금"); // account_panel
 	JButton withdraw = new JButton("이체"); // account_panel
 	JButton member_out = new JButton("회원탈퇴"); //member_panel
 	JButton trans_button = new JButton("거래내역"); //login_panel
+	JButton list = new JButton("사용자들") ; // login_panel
 	//JButton current_account = new JButton("현재잔액"); //account_panel
 	
 	JLabel id_login = new JLabel("아이디  "); //login_panel
@@ -45,10 +49,21 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 	JPanel member_panel = new JPanel();
 	JPanel account_panel = new JPanel();
 	JPanel trans_panel = new JPanel();
+	JPanel list_panel = new JPanel();
 	
 	JTextArea trans = new JTextArea(); // 최근 거래내역 저장할곳 
+	JTextArea lists = new JTextArea(); // 어떤 사용자들 있나 보여주는 lists
 	
 	int i = 0 ; //list의 몇번쨰 인덱스를 원하나
+	
+	public static boolean isNumeric(String s) { // 숫자인지 문자열인지 판단하는 메소드
+		  try {
+		      Double.parseDouble(s);
+		      return true;
+		  } catch(NumberFormatException e) {
+		      return false;
+		  }
+		}
 	
 	public Account()
 	{
@@ -65,6 +80,8 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 		main_frame.add(account_panel);
 		trans_panel();
 		main_frame.add(trans_panel);
+		list_panel();
+		main_frame.add(list_panel);
 		main_frame.setVisible(true);
 	}
 	
@@ -99,12 +116,18 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 		trans_button.setLocation(243,114);
 		login_panel.add(trans_button);
 		
+		list.setSize(85,20); //어떤 사용자들이 있나 보여주는 panel로 이동하는 버튼
+		list.setLocation(340, 54);
+		login_panel.add(list);
+		
 		// 사건 리스너 객체를 만들고 두 개의 단추 객체들의 사건 리스너로 등록한다
 		ButtonListener listener = new ButtonListener();
         login.addActionListener(listener);
         member_move.addActionListener(listener);
         trans_button.addActionListener(listener);
+        list.addActionListener(listener);
         login_panel.setVisible(true);
+        
 		
 		//login_panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -231,6 +254,22 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 		back_2.addActionListener(listener);
 		trans_panel.setVisible(false);
 	}
+	public void list_panel()
+	{
+		list_panel.setLayout(null);
+		list_panel.setSize(450, 300);
+		
+		lists.setBounds(0, 0, 335, 300); //TextField 
+		list_panel.add(lists);
+		
+		back_3.setSize(85,20); //뒤로가기 버튼
+		back_3.setLocation(345,10);
+		list_panel.add(back_3);//패널에 추가
+		
+		ButtonListener listener = new ButtonListener();
+		back_3.addActionListener(listener);
+		list_panel.setVisible(false);
+	}
 	
 	class ButtonListener implements ActionListener
 	{	
@@ -288,10 +327,25 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 				trans_panel.setVisible(false);
 				login_panel.setVisible(true);
 			}
+			else if (event.getSource() == back_3 )
+			{
+				list_panel.setVisible(false);
+				login_panel.setVisible(true);
+			}
 			else if (event.getSource() == trans_button) // 최근거래내역 조회
 			{
 				login_panel.setVisible(false);
 				trans_panel.setVisible(true);
+			}
+			else if (event.getSource() == list) // 사용자목록 보여주는 패널로 이동	
+			{
+				login_panel.setVisible(false);
+				lists.setText("");
+				for ( i = 0 ; i < Id.size() ; i++)
+				{
+					lists.append(Id.get(i) + " 의 잔액은 " + money.get(i) + "원 입니다\n");
+				}
+				list_panel.setVisible(true);
 			}
 			else if (event.getSource() == member_join ) //회원가입 버튼
 			{	
@@ -338,7 +392,7 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 			else if ( event.getSource() == current_account)
 			{
 				for (i = 0 ; i < Id.size() ; i++) // 몇번째 인덱스 인지 확인
-				{
+				{	
 					if(Id.get(i).equals(idfield_login.getText()))  // 배열안에 그 아이디값이 있는지 없는지 
 					{ 	
 						int m = money.get(i);
@@ -346,6 +400,110 @@ public class Account //extends JFrame을 활용하는 방법, 여러가지 패널은 만들어서 
 						break;
 					}
 						
+				}
+			}
+			else if (event.getSource() == plus)
+			{
+				if(isNumeric(account.getText()) == true)
+				{
+					for (i = 0 ; i < Id.size() ; i++) // 몇번째 인덱스 인지 확인
+					{
+						if(Id.get(i).equals(idfield_login.getText()))  // 배열안에 그 아이디값이 있는지 없는지 
+						{ 	
+							int m = money.get(i);
+							int n = Integer.parseInt(account.getText()); // string의 값을 정수형으로 전환 
+							m = m + n ;
+							money.set(i,m); //특정 인덱스 값 m으로 수정
+							trans.append(Id.get(i) + " 에게 " + n + " 원이 입금되었습니다. \n");
+							current_account.setText(Integer.toString(money.get(i))); // 현재몇원인지 보여주는 label의 text를 지정해줌.
+							JOptionPane.showMessageDialog(null,"현재잔액  : "+ m + " 원"); // 이런식으로 쓸수 있다.
+							break;
+						}
+							
+					}
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null,"잘못된 입력입니다. ");
+				}
+			}
+			else if (event.getSource() == minus)
+			{	
+				if(isNumeric(account.getText()) == true) // 숫자인지 문자열인지 확인 
+				{
+					for (i = 0 ; i < Id.size() ; i++) // 몇번째 인덱스 인지 확인
+						{
+							if(Id.get(i).equals(idfield_login.getText()))  // 배열안에 그 아이디값이 있는지 없는지 
+							{ 	
+								int m = money.get(i);
+								int n = Integer.parseInt(account.getText()); // string의 값을 정수형으로 전환 
+								m = m - n ;
+								if ( m < 0 )
+								{
+									JOptionPane.showMessageDialog(null,"돈이 부족합니다.");
+									break;
+								}
+								money.set(i,m); //특정 인덱스 값 m으로 수정
+								trans.append(Id.get(i) + " 에게 " + n + " 원이 출금되었습니다.\n ");
+								current_account.setText(Integer.toString(money.get(i))); // 현재몇원인지 보여주는 label의 text를 지정해줌.
+								JOptionPane.showMessageDialog(null,"현재잔액  : "+ m + " 원"); // 이런식으로 쓸수 있다.
+								break;
+							}
+								
+						}
+				}
+				else 
+				{
+					JOptionPane.showMessageDialog(null,"잘못된 입력입니다. ");
+				}
+			}
+			else if (event.getSource() == withdraw) //이체
+			{
+				
+				if(isNumeric(account.getText()) == true) // 숫자인지 ,문자열인지 확인
+				{	
+					String who = JOptionPane.showInputDialog(" 누구에서 이체하시겠습니까? ");
+					if(Id.contains(who)) // who라는 사람이 Id가 있는지 확인 
+					{
+						for (i = 0 ; i < Id.size() ; i++) // 몇번째 인덱스 인지 확인
+						{	
+		
+							if(Id.get(i).equals(who));  // 배열안에 그 아이디값이 있는지 없는지 
+							{ 	
+								int m = money.get(i); //받는 사람의 돈
+								int n = Integer.parseInt(account.getText()); // string의 값을 정수형으로 전환 
+								money.set(i,m+n); //돈 받은사람의 돈을 올려줌
+								for (int a = 0 ; a < Id.size() ; a++) // 몇번째 인덱스 인지 확인
+								{
+									if(Id.get(a).equals(idfield_login.getText())) //돈을 보낸사람 찾기
+									{ 	
+										int b = money.get(a); // 보내는 사람의 돈
+										b = b - n;
+										if ( b < 0 )
+										{
+											JOptionPane.showMessageDialog(null,"돈이 부족합니다.");
+											break;
+										}
+										money.set(a,b); //특정 인덱스 값 m으로 수정
+										trans.append(Id.get(a) + " 이/가 ");
+										current_account.setText(Integer.toString(money.get(a))); // 현재몇원인지 보여주는 label의 text를 지정해줌.
+										break;
+									}
+										
+								}
+								trans.append(Id.get(i) + " 에게 " + n + " 원을 이체하였습니다.\n ");
+								break;
+							}		
+						}
+					}
+					else //who라는 사람이 없으면 메세지 출력 
+					{
+						JOptionPane.showMessageDialog(null,"없는 사용자 입니다.");
+					}
+				}
+				else 
+				{
+					JOptionPane.showMessageDialog(null,"잘못된 입력입니다. ");
 				}
 			}
 		}
